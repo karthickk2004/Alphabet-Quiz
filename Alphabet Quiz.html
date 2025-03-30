@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Random Alphabet Generator</title>
+    <style>
+        /* Body Styles - Fixed Full Screen */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            height: 100vh;
+            width: 100vw;
+            display: flex; /* Ensures center alignment */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            user-select: none;
+            overflow: hidden; /* Prevents scrolling */
+            margin: 0;
+        }
+
+        /* Prevent touch scrolling on mobile */
+        html, body {
+            touch-action: none;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            font-size: 28px;
+            width: 100%;
+            position: fixed; /* Keeps it fixed */
+            top: 0;
+            left: 0;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 2px;
+            z-index: 100;
+        }
+
+        /* Letter Box (10:12 Aspect Ratio, Centered) */
+        #letter-box {
+            font-size: 400px; /* Bigger font size */
+            font-weight: bold;
+            background: white;
+            text-align: center;
+            height: 450px; /* Height (12) */
+            width: 375px;  /* Width (10) - 10:12 ratio */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); /* Soft shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff4b2b;
+        }
+
+        /* Animation for Random Letter */
+        #letter-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            #letter-box {
+                font-size: 280px; /* Adjusted for mobile */
+                height: 350px;
+                width: 290px; /* 10:12 ratio */
+                padding: 20px;
+            }
+            header {
+                font-size: 30px;
+                padding: 12px;
+            }
+            footer {
+                font-size: 16px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body onclick="generateRandomLetter()">
+
+<header>CRACK THE CODE</header>
+
+<!-- Letter Box -->
+<div id="letter-box">Z</div>
+
+<!-- Footer for Credit -->
+<footer>Created by Karthick K (MBA Department)</footer>
+
+<script>
+    function generateRandomLetter() {
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const randomIndex = Math.floor(Math.random() * letters.length);
+        document.getElementById("letter-box").innerText = letters[randomIndex];
+
+        // Add Animation Effect
+        document.getElementById("letter-box").style.transform = "scale(1.1)";
+        setTimeout(() => {
+            document.getElementById("letter-box").style.transform = "scale(1)";
+        }, 200);
+    }
+</script>
+
+</body>
+</html>
